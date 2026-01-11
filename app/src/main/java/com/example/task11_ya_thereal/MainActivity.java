@@ -13,12 +13,16 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import java.util.Random;
 
+/**
+ * The MainActivity class manages the main user interface with five buttons,
+ * each demonstrating a different type of AlertDialog functionality.
+ * * @author Darya Hamalca
+ * @version 1.0
+ * @since 12/01/2026
+ */
 public class MainActivity extends AppCompatActivity
 {
     Button btn1;
@@ -64,6 +68,12 @@ public class MainActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Called when the activity is first created.
+     * <p>
+     * Sets up the layout, initializes buttons, and assigns click listeners for each dialog trigger.
+     * * @param savedInstanceState Bundle containing the activity's previously saved state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -76,6 +86,7 @@ public class MainActivity extends AppCompatActivity
         btn4 = findViewById(R.id.btn4);
         btn5 = findViewById(R.id.btn5);
         mainLayout = findViewById(R.id.main);
+
         btn1.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -112,6 +123,12 @@ public class MainActivity extends AppCompatActivity
         });
 
     }
+
+    /**
+     * Displays a simple message dialog.
+     * <p>
+     * Requirement: Dialog with message only.
+     */
     private void showDialog1()
     {
         AlertDialog.Builder adb = new AlertDialog.Builder(this);
@@ -119,24 +136,41 @@ public class MainActivity extends AppCompatActivity
         adb.setMessage("albert is ok????");
         adb.show();
     }
+
+    /**
+     * Displays a message dialog with an icon.
+     * <p>
+     * Requirement: Dialog with message and an illustration (icon).
+     */
     private void showDialog2()
     {
         AlertDialog.Builder adb = new AlertDialog.Builder(this);
         adb.setTitle("Message with Icon");
-        adb.setMessage("This dialog has an image!");
+        adb.setMessage("albart ze svava?\n");
         adb.setIcon(R.mipmap.ic_launcher);
         adb.show();
     }
 
+    /**
+     * Displays a dialog with message, icon, and a close button.
+     * <p>
+     * Requirement: Dialog with illustration and a close action.
+     */
     private void showDialog3()
     {
         AlertDialog.Builder adb = new AlertDialog.Builder(this);
-        adb.setTitle("3");
-        adb.setMessage("This one has a message, an icon, and a button!");
+        adb.setTitle("Button 3");
+            adb.setMessage("This one has a message, an icon, and a button!");
         adb.setIcon(R.mipmap.ic_launcher);
         adb.setNeutralButton("Close", null);
         adb.show();
     }
+
+    /**
+     * Displays a persistent dialog to change background colors.
+     * <p>
+     * Requirement: Change background to a random color and include a close button.
+     */
     private void showDialog4() {
         AlertDialog.Builder adb = new AlertDialog.Builder(this);
         adb.setTitle("Background Changer");
@@ -155,10 +189,16 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
+    /**
+     * Displays a dialog with three control options.
+     * <p>
+     * Requirement: Options for random color, reset to white, and close button.
+     */
     private void showDialog5() {
         AlertDialog.Builder adb = new AlertDialog.Builder(this);
         adb.setTitle("Background Control");
         adb.setMessage("Choose an action for the background:");
+
         adb.setPositiveButton("Random", null);
         adb.setNegativeButton("White", null);
         adb.setNeutralButton("Close", null);
